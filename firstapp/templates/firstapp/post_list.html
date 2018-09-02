@@ -1,0 +1,19 @@
+{% extends "firstapp/base.html" %}
+
+{% block title %}
+	<title>Список всех статей</title>
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			{% for post in posts %}
+				<div class="col-md-10">
+					<p>Дата публикации: {{ post.pub_date}}</p>
+					<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+					<p>{{ post.content }}</p>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
